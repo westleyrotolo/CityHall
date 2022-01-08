@@ -1,0 +1,29 @@
+$primary-h: 0; 
+$primary-s: 80;
+$primary-b: 100;
+@import "./../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss";
+
+.collapse-navbar {
+  padding-top: 215px!important;
+}
+
+.collapse-navbar-mobile {
+  padding-top: 85px!important;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+a {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.wrap-text {
+    white-space: pre-wrap;
+}
+
+
+// import libreria

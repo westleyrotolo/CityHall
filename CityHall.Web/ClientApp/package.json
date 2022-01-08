@@ -14,6 +14,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^12.2.14",
     "@angular/animations": "~12.2.2",
     "@angular/common": "~12.2.2",
     "@angular/compiler": "~12.2.2",
@@ -23,9 +24,11 @@
     "@angular/platform-browser-dynamic": "~12.2.2",
     "@angular/platform-server": "~12.2.2",
     "@angular/router": "~12.2.2",
+    "bootstrap": "4.5.0",
     "bootstrap-italia": "^1.4.3",
     "design-angular-kit": "^0.13.0",
     "jquery": "^3.5.1",
+    "ngx-device-detector": "^3.0.0",
     "oidc-client": "^1.11.5",
     "popper.js": "^1.16.0",
     "run-script-os": "^1.1.6",
@@ -34,7 +37,6 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.2",
     "@angular/cli": "~12.2.2",
     "@angular/compiler-cli": "~12.2.2",
     "@types/jasmine": "~3.6.0",

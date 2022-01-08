@@ -4,13 +4,14 @@
       <div class="row">
         <div class="col-12">
           <div class="it-header-slim-wrapper-content">
-            <a class="d-lg-block navbar-brand" href="#">Nome della Regione</a>
+            <a class="d-lg-block navbar-brand" href="#">{{headerData.region}}</a>
             <div class="header-slim-right-zone">
               <div class="nav-item dropdown">
                 <a aria-expanded="false" class="nav-link dropdown-toggle"
                    data-toggle="dropdown" href="#">
                   <span>ITA</span>
                   <svg class="icon icon-white d-none d-lg-block">
+                    <use [attr.xlink:href]="itExpand"></use>
                   </svg>
                 </a>
                 <div class="dropdown-menu">
@@ -18,11 +19,8 @@
                     <div class="col-12">
                       <div class="link-list-wrapper">
                         <ul class="link-list">
-                          <li>
-                            <a class="list-item" href="#"><span>ITA</span></a>
-                          </li>
-                          <li>
-                            <a class="list-item" href="#"><span>ENG</span></a>
+                          <li *ngFor="let language of headerData.supportedLanguage">
+                            <a class="list-item" href="#"><span>{{language}}</span></a>
                           </li>
                         </ul>
                       </div>
@@ -33,6 +31,7 @@
               <a class="btn btn-primary btn-icon btn-full" href="#" title="Accedi all'area personale">
                 <span class="rounded-icon">
                 <svg class="icon icon-primary">
+                  <use [attr.xlink:href]="itUser"></use>
                 </svg>
               </span>
               <span class="d-none d-lg-block">Accedi all'area personale</span>
@@ -53,11 +52,12 @@
               <div class="it-brand-wrapper">
                 <a >
                   <svg class="icon">
+                    <use [attr.xlink:href]="this.headerData.logo"></use>
                   </svg>
                   <div class="it-brand-text">
-                    <h2 class="no_toc">Nome del Comune</h2>
-                    <h3 class="no_toc d-none d-md-block">
-                      Uno dei tanti Comuni d'Italia
+                    <h2 class="no_toc">{{headerData.cityTitle}}</h2>
+                    <h3 *ngIf="headerData.citySubtitle" class="no_toc d-none d-md-block">
+                      {{headerData.citySubtitle}}
                     </h3>
                   </div>
                 </a>
@@ -66,15 +66,10 @@
                 <div class="it-socials d-none d-md-flex">
                   <span>Seguici su</span>
                   <ul>
-                    <li>
-                      <a aria-label="Facebook" href="#" target="_blank">
+                    <li *ngFor="let followUs of headerData.followUs">
+                      <a [attr.aria-label]="followUs.name" [href]="followUs.url" target="_blank">
                         <svg class="icon">
-                        </svg>
-                      </a>
-                    </li>
-                    <li>
-                      <a aria-label="Twitter" href="#" target="_blank">
-                        <svg class="icon">
+                          <use [attr.xlink:href]="followUs.icon"></use>
                         </svg>
                       </a>
                     </li>
@@ -85,6 +80,7 @@
                   <a aria-label="Cerca" class="search-link rounded-icon"
                      href="#">
                     <svg class="icon">
+                      <use [attr.xlink:href]="itSearch"></use>
                     </svg>
                   </a>
                 </div>
@@ -103,6 +99,7 @@
                       aria-label="Toggle navigation" class="custom-navbar-toggler"
                       data-target="#nav10" type="button">
                 <svg class="icon">
+                  <use [attr.xlink:href]="itBurger"></use>
                 </svg>
               </button>
               <div class="navbar-collapsable" id="nav10">
@@ -114,37 +111,17 @@
                 </div>
                 <div class="menu-wrapper">
                   <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li *ngFor="let section of headerData.sections" class="nav-item"> 
                       <a class="nav-link" >
-                        <span>Amministrazione</span>
-                      </a>
-                    </li>
-                    <li class="nav-item ">
-                      <a class="nav-link ">
-                        <span>Novità</span>
-                      </a>
-                    </li>
-                    <li class="nav-item ">
-                      <a class="nav-link" >
-                        <span>Servizi</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link ">
-                        <span>Documenti e Dati</span>
+                        <span>{{section.name}}</span>
                       </a>
                     </li>
                   </ul>
-                  <ul class="navbar-nav navbar-secondary">
-                    <li class="nav-item ">
-                      <a class="nav-link ">
-                        Argomento 1</a>
+                  <ul *ngIf="headerData.topics && headerData.topics.length > 0" class="navbar-nav navbar-secondary">
+                    <li class="nav-item " *ngFor="let topic of headerData.topics | slice:0:3" >
+                      <a class="nav-link ">{{topic.name}}</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" >
-                        Argomento 2</a>
-                    </li>
-                    <li class="nav-item ">
+                    <li *ngIf="headerData.topics.length > 3" class="nav-item ">
                       <a class="nav-link " >
                         <span class="font-weight-bold">Tutti gli argomenti...</span>
                        <span class="sr-only">menu selezionato</span>
