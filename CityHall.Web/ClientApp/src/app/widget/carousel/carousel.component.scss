@@ -1,0 +1,19 @@
+.it-carousel-wrapper.it-carousel-landscape-abstract {
+     max-width: 100%;
+}
+::ng-deep .it-carousel-wrapper .owl-stage-outer {
+    padding-top: 0!important;
+    padding-bottom: 0;
+}
+::ng-deep .it-carousel-wrapper.it-carousel-landscape-abstract .owl-stage-outer {
+border-right: 0!important   ;
+}
+.full-screen-carousel {
+    width: 100%!important;
+    max-width: 100%!important;
+    padding-top: 0!important;
+    border-right: 0!important;
+    height: 400px!important;
+    padding: 0!important;
+
+}

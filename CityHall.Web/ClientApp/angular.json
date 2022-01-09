@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/bootstrap-italia-custom.scss"
             
             ],
             "scripts": []

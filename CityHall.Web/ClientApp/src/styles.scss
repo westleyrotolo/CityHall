@@ -1,8 +1,6 @@
-$primary-h: 0; 
-$primary-s: 80;
-$primary-b: 100;
-@import "./../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss";
 
+@import "./../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss";
+@import "./variables.scss";
 .collapse-navbar {
   padding-top: 215px!important;
 }
@@ -25,5 +23,36 @@ a {
     white-space: pre-wrap;
 }
 
+.single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.two-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+          line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+
+.body-text {
+  color: $text-color;
+  font-size: .8rem;
+}
+.small-text {
+  color: #555;
+  font-size: .8rem;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
 
 // import libreria
+.container-carousel {
+  padding-bottom: 60px;
+}

@@ -25,8 +25,16 @@ export interface Link {
     linkedPageId?: string;
 }
 
+export interface Tag{
+    title: string;
+}
+
 export enum LinkType {
     None,
     Internal, 
     External
+}
+
+export interface Category {
+    title: string;
 }

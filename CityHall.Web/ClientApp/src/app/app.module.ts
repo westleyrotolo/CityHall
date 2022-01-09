@@ -10,6 +10,12 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { FooterComponent } from './footer/footer.component';
+import { SmallCardComponent } from './widget/small-card/small-card.component';
+import { CardContainerComponent } from './widget/card-container/card-container.component';
+import { SmallCardContainerComponent } from './widget/small-card-container/small-card-container.component';
+import { CardComponent } from './widget/card/card.component';
+import { TagComponent } from './widget/tag/tag.component';
+import { CarouselComponent } from './widget/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    FooterComponent
+    FooterComponent,
+    SmallCardComponent,
+    SmallCardContainerComponent,
+    CardContainerComponent,
+    CardComponent,
+    TagComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

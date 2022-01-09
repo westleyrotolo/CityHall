@@ -1,0 +1,26 @@
+
+.chip {
+    min-width: 80px!important;
+    border-color: #0066cc;
+    color:#0066cc;
+    cursor: pointer;
+}
+.chip-label{
+    color:#0066cc!important;
+
+}
+.chip:hover:not(.chip-disabled){
+    background: #0066cc;
+    border-color: #0066cc;
+    color:white!important;
+    
+    transition: background-color 0.1s;
+}
+
+.chip-label:hover:not(.chip-label-disabled){
+    background: #0066cc;
+    border-color: #0066cc;
+    color:white!important;
+    
+    transition: background-color 0.1s;
+}

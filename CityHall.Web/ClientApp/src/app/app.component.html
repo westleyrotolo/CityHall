@@ -1,6 +1,6 @@
 <body>
   <app-nav-menu #nav></app-nav-menu>
-  <div class="container" [ngClass]="{'collapse-navbar-mobile': !isExpanded && deviceService.isMobile(), 'collapse-navbar': !isExpanded && !deviceService.isMobile()}">
+  <div  [ngClass]="{'collapse-navbar-mobile': !isExpanded && deviceService.isMobile(), 'collapse-navbar': !isExpanded && !deviceService.isMobile()}">
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>

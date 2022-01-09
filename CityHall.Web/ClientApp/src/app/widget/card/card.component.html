@@ -1,0 +1,40 @@
+<div class="card-wrapper card-space">
+    <div class="card card-bg card-big no-after" style="flex-grow: 1;">
+        <div class="card card-img" style="flex-grow:1;">
+            <div *ngIf="cardData?.image" class="img-responsive-wrapper">
+                <div class="img-responsive">
+                    <figure class="img-wrapper">
+                        <img [src]="cardData?.image"
+                            title="{{cardData?.title}}" alt="imagealt">
+                    </figure>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="category-to clearfix mb-1">
+                    <a class="category float-right" href="#">{{cardData?.category?.title}}</a>
+                    <span class="data float-left">
+                    <svg class="icon icon-sm">
+                        <use [attr.xlink:href]="itCalendar"></use>
+                    </svg>
+                    {{cardData?.date | date: 'dd/MM/yyyy'}}
+                    </span> 
+                  </div>
+                <h5 class="card-title">{{cardData?.title}}</h5>
+                <p class="card-text">
+                    {{cardData?.content}}
+                </p>
+            </div>
+
+            <div style="margin-top:0px;" class="card-body it-card-footer  align-items-end align-bottom" >
+                <div class="d-flex flex-wrap align-items-end" *ngIf="cardData?.tags">
+                    <app-tag class="mr-1" *ngFor="let tag of cardData?.tags" [tag]="tag"></app-tag>
+                </div>
+                <a class="read-more" href="#">
+                    <span class="text">Leggi di più</span>
+                    <svg class="icon">
+                        <use [attr.xlink:href]="itArrowRight"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>

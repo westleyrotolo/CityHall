@@ -1,0 +1,23 @@
+<div  [ngStyle]="{'background-color': smallCardData?.backgroundColor}" class="d-block card-img card card-teaser rounded align-items-center col-12">
+    <div *ngIf="smallCardData?.image" class="w-100">
+                <img [src]="smallCardData?.image"
+                class="w-100" style="object-fit: cover;height: 200px;"
+                    title="{{smallCardData?.title}}" alt="imagealt">
+    </div>
+    <div class="card-body row align-items-center">
+        <span class="col-auto" *ngIf="smallCardData?.icon">
+            <svg [ngStyle]="{'fill': smallCardData?.textColor}" class="icon" >
+                <use [attr.xlink:href]="smallCardData?.icon"></use>
+            </svg>
+        </span>
+        <div class="col align-self-center">
+        <h6 [title]="smallCardData?.title" [ngStyle]="{'color': smallCardData?.textColor}" [ngClass]="{'single-line' : smallCardData?.subtitle}" [ngClass]="{'two-line' : !smallCardData?.subtitle}"  class="card-title h6  line-height-1">{{smallCardData?.title}}</h6>
+        <div [title]="smallCardData?.subtitle" [ngStyle]="{'color': smallCardData?.textColor}" *ngIf="smallCardData?.subtitle" class="single-line body-text ">{{smallCardData?.subtitle}}</div>
+        </div>  
+        <span class="col-auto" *ngIf="smallCardData?.link?.externalLink">
+            <svg [ngStyle]="{'fill': smallCardData?.textColor}" class="icon-sm icon" >
+                <use [attr.xlink:href]="itExternalLink"></use>
+            </svg>
+        </span>
+    </div>
+</div>

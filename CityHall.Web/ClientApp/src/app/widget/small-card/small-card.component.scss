@@ -1,0 +1,17 @@
+@import "./../../../variables.scss";
+.card {
+    background-color: $default-small-card-color;
+    cursor: pointer;
+}
+.card-body{
+    height: 70px!important;
+}
+.card.card-teaser {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.card.card-teaser .card-body {
+padding: 12px;
+}
