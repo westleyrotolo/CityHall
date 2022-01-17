@@ -16,6 +16,9 @@ import { SmallCardContainerComponent } from './widget/small-card-container/small
 import { CardComponent } from './widget/card/card.component';
 import { TagComponent } from './widget/tag/tag.component';
 import { CarouselComponent } from './widget/carousel/carousel.component';
+import { TagContainerComponent } from './widget/tag-container/tag-container.component';
+import { ListPageComponent } from './pages/list-page/list-page.component';
+import { NavigationPathComponent } from './pages/navigation-path/navigation-path.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { CarouselComponent } from './widget/carousel/carousel.component';
     CardContainerComponent,
     CardComponent,
     TagComponent,
-    CarouselComponent
+    CarouselComponent,
+    TagContainerComponent,
+    ListPageComponent,
+    NavigationPathComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,8 +44,8 @@ import { CarouselComponent } from './widget/carousel/carousel.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'categoria/:name', component: ListPageComponent}
+
     ])
   ],
   providers: [],

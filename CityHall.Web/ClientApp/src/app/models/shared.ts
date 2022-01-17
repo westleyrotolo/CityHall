@@ -32,7 +32,8 @@ export interface Tag{
 export enum LinkType {
     None,
     Internal, 
-    External
+    External,
+    List
 }
 
 export interface Category {

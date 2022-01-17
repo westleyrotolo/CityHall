@@ -1,0 +1,42 @@
+<div class="container">
+<app-navigation-path class="mx-2" [items]="links" [currentPage]="sectionName"></app-navigation-path>
+<h1 class="mx-2 mb-1">{{sectionName}}</h1>
+<app-card-container class="m-2" [cards]="cards"></app-card-container>
+<nav class="pagination-wrapper justify-content-center" aria-label="Esempio di navigazione con ellissi/more">
+  <ul class="pagination ">
+    <li  [ngClass]="{'disabled': selectedPage == 1}" class="page-item">
+      <a  class="page-link" (click)="changePage(selectedPage-1)">
+        <svg class="icon icon-primary"><use  [attr.xlink:href]="itChevronLeft"></use></svg>
+        <span class="sr-only">Pagina precedente</span>
+      </a>  
+    </li>
+    <li [ngClass]="{'active' : selectedPage == 1}" [ngClass]="{'d-none d-sm-flex' : selectedPage != 1}"  class="page-item ">
+      <a class="page-link" (click)="changePage(1)" [attr.aria-current]="selectedPage == 1 ? 'page' : null">
+        <span *ngIf="selectedPage==1" class="d-inline-block d-sm-none">Pagina </span>1
+      </a>
+    </li>
+    <li class="page-item d-none d-sm-flex" *ngIf="showMoreLx">
+      <span class="page-link">...</span>
+    </li>
+    <li *ngFor="let page of pager" [ngClass]="{'active' : selectedPage == page}"  [ngClass]="{'d-none d-sm-flex' : selectedPage != page}" class="page-item">
+      <a class="page-link" (click)="changePage(page)"  [attr.aria-current]="selectedPage == page ? 'page' : null">
+        <span *ngIf="selectedPage==page" class="d-inline-block d-sm-none">Pagina </span>{{page}}
+      </a>
+    </li>
+    <li class="page-item d-none d-sm-flex" *ngIf="showMoreRx">
+      <span class="page-link">...</span>
+    </li>
+    <li class="page-item" [ngClass]="{'active' : selectedPage == lastPage}"  [ngClass]="{'d-none d-sm-flex' : selectedPage != lastPage}">
+      <a (click)="changePage(lastPage)" class="page-link" [attr.aria-current]="selectedPage == lastPage ? 'page' : null">
+        <span *ngIf="selectedPage==lastPage" class="d-inline-block d-sm-none">Pagina </span>{{lastPage}}
+      </a>
+    </li>
+    <li  [ngClass]="{'disabled': selectedPage == lastPage}"   class="page-item">
+      <a class="page-link" (click)="changePage(selectedPage+1)">
+        <span class="sr-only">Pagina successiva</span>
+        <svg class="icon icon-primary"><use [attr.xlink:href]="itChevronRight"></use></svg>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>

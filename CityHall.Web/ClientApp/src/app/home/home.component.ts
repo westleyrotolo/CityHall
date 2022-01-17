@@ -1,19 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { Card } from '../models/card';
-import { LinkType } from '../models/shared';
+import { LinkType, Tag } from '../models/shared';
 import { SmallCard } from '../models/small-card';
+import { CardContainerComponent } from '../widget/card-container/card-container.component';
+import { SmallCardContainerComponent } from '../widget/small-card-container/small-card-container.component';
+import { SmallCardComponent } from '../widget/small-card/small-card.component';
+import { TagContainerComponent } from '../widget/tag-container/tag-container.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+
+
+  cardContainerComponentRef?: ComponentRef<CardContainerComponent>;
+  tagContainerComponentRef?: ComponentRef<TagContainerComponent>;
+  smallCardContainerComponentRef?: ComponentRef<SmallCardContainerComponent>;
+
   smallCards: SmallCard[] = [];
   smallCardsWithImage: SmallCard[] = [];
   cards: Card[] = [];
+  tags: Tag[] = [];
   baseSvgPath = "./../../assets/bootstrap-italia/svg/sprite.svg";
   itChevronRight = `${this.baseSvgPath}#it-chevron-right`;
-  constructor() {
+  constructor(private resolver: ComponentFactoryResolver) {
+    this.initData()
+
+
+  }
+
+
+  initData(){
+    this.tags =[
+      {
+        title : 'Comune',
+      },
+      {
+        title : 'Scuola', 
+      },
+      {
+        title : 'Coronavirus',
+      },
+      {
+        title : 'Lavoro', 
+      },
+      {
+        title : 'Bando',
+      },
+      {
+        title : 'Rifiuti', 
+      },
+      {
+        title : 'Protezione Civile',
+      },
+      {
+        title : 'Parco', 
+      }
+    ]
     this.cards = [
       {
         title: 'Titolo della card',
@@ -117,7 +161,6 @@ export class HomeComponent {
       },
       
     ]
-
     this.smallCardsWithImage = [
       {
         title: "Amministrazione super mega iper stra Trasparente con contenuto su due righe massimo",

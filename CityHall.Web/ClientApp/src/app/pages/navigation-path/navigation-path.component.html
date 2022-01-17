@@ -1,0 +1,6 @@
+<nav class="breadcrumb-container" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li *ngFor="let item of items" class="breadcrumb-item"><a href="#">{{item.title}}</a><span class="separator">/</span></li>
+      <li class="breadcrumb-item active" aria-current="page">{{currentPage}}</li>
+    </ol>
+</nav>

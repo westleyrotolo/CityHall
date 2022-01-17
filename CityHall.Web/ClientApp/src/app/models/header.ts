@@ -5,7 +5,7 @@ export interface Header {
     region?: string;
     cityTitle?: string;
     citySubtitle?: string;
-    supportedLanguage?: string[]
+    supportedLanguage?: string[];
     followUs?: FollowUs[];
     sections?: Section[];
     topics?: Topic[];
