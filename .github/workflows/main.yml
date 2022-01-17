@@ -51,7 +51,9 @@ jobs:
         run: ssh staging 'cd cityhall && rm -f docker-compose.yml'
 
       - name: Copy new docker-compose
-        run: scp -P22 -r -i ~/.ssh/staging.key */docker-compose.yml root@212.227.76.97:/root/cityhall
+        run: | 
+          ls  ~/.ssh/
+          scp -P22 -r -i staging */docker-compose.yml root@212.227.76.97:/root/cityhall
 
       - name: Deploy
         run: |
