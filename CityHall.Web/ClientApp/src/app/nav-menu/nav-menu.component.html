@@ -119,7 +119,7 @@
                   </ul>
                   <ul *ngIf="headerData.topics && headerData.topics.length > 0" class="navbar-nav navbar-secondary">
                     <li class="nav-item " *ngFor="let topic of headerData.topics | slice:0:3" >
-                      <a class="nav-link ">{{topic.name}}</a>
+                      <a class="nav-link ">{{topic.title}}</a>
                     </li>
                     <li *ngIf="headerData.topics.length > 3" class="nav-item ">
                       <a class="nav-link " >

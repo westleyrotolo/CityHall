@@ -1,0 +1,140 @@
+<div class="container">
+    <app-navigation-path class="mx-2" [items]="links" [currentPage]="sectionName"></app-navigation-path>
+    <div class="row">
+        <div class="col-lg-8 px-lg-4 py-lg-2">
+            <h1>
+                {{detail.title}}
+            </h1>
+            <p>
+                {{detail.briefDescription}}
+            </p>
+            <div class="row mt-5 mb-4">
+                <div class="col-6">
+                    <small>Data:</small>
+                    <p class="font-weight-semibold text-monospace">{{detail.date | date : 'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="col-6">
+                    <small>Tempo di lettura:</small>
+                    <p class="font-weight-semibold">{{detail.readingTime}} min</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 offset-lg-1">
+            <app-dropdown-button [title]="shareTitle" [icon]="shareIcon" [items]="shareItems"></app-dropdown-button>
+            <app-dropdown-button [title]="actionTitle" [icon]="actionIcon" [items]="actionItems"></app-dropdown-button>
+
+            <div class="mt-4 mb-4" *ngIf="detail.topics">
+
+                <h6><small>Argomenti</small></h6>
+
+                <app-tag class="m-1" *ngFor="let tag of detail.topics" [tag]="tag"></app-tag>
+            </div>
+        </div>
+    </div>
+    <div class="row row-full-width my-3" *ngIf="detail.imageUrl">
+        <figure class="figure">
+            <img [src]="detail.imageUrl" class="figure-img img-fluid" [alt]="detail.captionImage">
+            <figcaption class="figure-caption text-center pt-3">
+                {{detail.captionImage}}
+            </figcaption>
+        </figure>
+    </div>
+    <div class="row border-top row-column-border row-column-menu-left">
+        <aside class="col-lg-4 affix-parent" style="position: relative;">
+            <div class=" affix-top "  >
+                <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
+                    <button class="custom-navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation" data-target="#navbarNav"><span
+                            class="it-list"></span>Documenti</button>
+                    <div class="navbar-collapsable" id="navbarNav">
+                        <div class="overlay"></div>
+                        <div class="close-div sr-only">
+                            <button class="btn close-menu" type="button">
+                                <span class="it-close"></span>Chiudi
+                            </button>
+                        </div>
+                        <a class="it-back-button" href="#">
+                            <svg class="icon icon-sm icon-primary align-top">
+                                <use
+                                    [attr.xlink:href]="itChevronLeft">
+                                </use>
+                            </svg>
+                            <span>Torna indietro</span></a>
+                        <div class="menu-wrapper">
+                            <div class="link-list-wrapper menu-link-list">
+                                <h3 class="no_toc">Indice della pagina</h3>
+                                <ul class="link-list">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#descrizione"><span>Descrizione</span></a>
+                                    </li>
+                                    <li class="nav-item" *ngIf="detail.documents">
+                                        <a class="nav-link active" href="#documenti"><span>Documenti</span></a>
+                                    </li>
+                                    <li class="nav-item" *ngIf="detail.editedBy">
+                                        <a class="nav-link" href="#a-cura-di"><span>A cura di</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#ulteriori-informazioni"><span>Ulteriori
+                                                informazioni</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+        <section class="col-lg-8 it-page-sections-container">
+            <article id="descrizione" class="it-page-section anchor-offset">
+                <h4>Descrizione</h4>
+                <div [innerHTML]="detail.htmlContent"></div>    
+            </article>
+            <article *ngIf="detail.documents" id="documenti" class="it-page-section anchor-offset mt-5">
+                <h4>Documenti</h4>
+                <div *ngFor="let document of detail.documents" class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
+                    <div class="card card-teaser shadow p-4 mt-3 rounded border">
+                        <svg class="icon">
+                            <use
+                                [attr.xlink:href]="itClip">
+                            </use>
+                        </svg>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">{{document.description}}</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article id="a-cura-di" class="it-page-section anchor-offset mt-5">
+                <h4>A cura di</h4>
+                <div class="row">
+                    <div class="col-12 col-sm-8">
+                        <h6><small>Questa pagina è gestita da</small></h6>
+                        <div class="card card-teaser border rounded shadow p-4">
+                            <div class="card-body pr-3">
+                                <h5 class="card-title">
+                                    {{detail.editedBy?.title}}
+                                </h5>
+                                <div class="card-text">
+                                    <div>{{detail.editedBy?.subtitle}}</div>
+                                </div>
+                            </div>
+                            <div class="avatar size-xl">
+                                <img src="{{detail.editedBy?.imageUrl}}" [alt]="detail.title">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article id="ulteriori-informazioni" class="it-page-section anchor-offset mt-5">
+                <h4 class="mb-3">Ulteriori informazioni</h4>
+
+            </article>
+            <article id="ultimo-aggiornamento" class="anchor-offset mt-5">
+                <p class="text-serif">Ultimo aggiornamento</p>
+                <h6><strong>{{detail.updatedAt | date : 'dd/MM/yyyy'}}</strong></h6>
+            </article>
+        </section>
+    </div>
+</div>

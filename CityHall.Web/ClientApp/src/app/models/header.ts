@@ -1,4 +1,4 @@
-import { FollowUs, Section } from "./shared";
+import { FollowUs, Section, Tag } from "./shared";
 
 export interface Header {
     logo?: string;
@@ -8,9 +8,5 @@ export interface Header {
     supportedLanguage?: string[];
     followUs?: FollowUs[];
     sections?: Section[];
-    topics?: Topic[];
-}
-
-export interface Topic {
-    name: string;
+    topics?: Tag[];
 }

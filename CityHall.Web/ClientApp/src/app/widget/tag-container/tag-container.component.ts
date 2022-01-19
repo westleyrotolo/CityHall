@@ -10,7 +10,7 @@ export class TagContainerComponent implements OnInit {
 
   @Input() tags: Tag[] = []
 
-  @Input() title: string = '';
+  @Input() title?: string;
   
   constructor() { }
 

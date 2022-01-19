@@ -19,6 +19,8 @@ import { CarouselComponent } from './widget/carousel/carousel.component';
 import { TagContainerComponent } from './widget/tag-container/tag-container.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { NavigationPathComponent } from './pages/navigation-path/navigation-path.component';
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { DropdownButtonComponent } from './widget/dropdown-button/dropdown-button.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NavigationPathComponent } from './pages/navigation-path/navigation-path
     CarouselComponent,
     TagContainerComponent,
     ListPageComponent,
-    NavigationPathComponent
+    NavigationPathComponent,
+    DetailPageComponent,
+    DropdownButtonComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,7 +48,8 @@ import { NavigationPathComponent } from './pages/navigation-path/navigation-path
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'categoria/:name', component: ListPageComponent}
+      { path: 'categoria/:name', component: ListPageComponent},
+      { path: 'page/:title', component: DetailPageComponent},
 
     ])
   ],

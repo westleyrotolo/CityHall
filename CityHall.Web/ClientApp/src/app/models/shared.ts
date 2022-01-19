@@ -39,3 +39,17 @@ export enum LinkType {
 export interface Category {
     title: string;
 }
+
+export interface Document {
+    filename?: string;
+    description?: string;
+    contentType: string;
+    link: string;
+
+}
+
+export interface Editor {
+    title: string;
+    subtitle?: string;
+    imageUrl?: string;
+}

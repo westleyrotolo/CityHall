@@ -1,0 +1,26 @@
+<div class="dropdown d-inline">
+    <button class="btn btn-dropdown dropdown-toggle" type="button" id="shareActions" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <svg *ngIf="icon" class="icon">
+            <use [attr.xlink:href]="icon">
+            </use>
+        </svg>
+        <small>{{title}}</small>
+    </button>
+    <div class="dropdown-menu shadow-lg" aria-labelledby="shareActions">
+        <div class="link-list-wrapper">
+            <ul class="link-list">
+                <li *ngFor="let item of items" (click)="itemClicked(item)">
+                    <a class="list-item" href="#">
+                        <svg class="icon">
+                            <use
+                                [attr.xlink:href]="item.icon">
+                            </use>
+                        </svg>
+                        <span>{{item.title}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
