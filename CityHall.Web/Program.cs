@@ -1,4 +1,5 @@
 using CityHall.Web.Data;
+using CityHall.Web.Models.MultiTenant;
 using CityHall.Web.Services.Extensions;
 using Finbuckle.MultiTenant;
 
@@ -10,9 +11,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuth(configuration);
 builder.Services.AddPostgreSqlConnection(configuration);
 
-builder.Services.AddMultiTenant<TenantInfo>()
-        .WithEFCoreStore<MultiTenantStoreDbContext, TenantInfo>()
-        .WithRouteStrategy();
+builder.Services.AddMultiTenant<Client>()
+        .WithEFCoreStore<MultiTenantStoreDbContext, Client>()
+        .WithHostStrategy();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

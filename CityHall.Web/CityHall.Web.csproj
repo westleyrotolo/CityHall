@@ -57,6 +57,9 @@
     <None Remove="Finbuckle.MultiTenant" />
     <None Remove="Finbuckle.MultiTenant.AspNetCore" />
     <None Remove="AWSSDK.S3" />
+    <None Remove="Models\MultiTenant\" />
+    <None Remove="Models\Home\" />
+    <None Remove="Dtos\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,6 +70,9 @@
     <Folder Include="Data\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\Interfaces\" />
+    <Folder Include="Models\MultiTenant\" />
+    <Folder Include="Models\RichPage\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->

@@ -1,13 +1,14 @@
 ﻿using System;
+using CityHall.Web.Models.MultiTenant;
 using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Stores;
 using Microsoft.EntityFrameworkCore;
 
 namespace CityHall.Web.Data
 {
-	public class MultiTenantDbContext : EFCoreStoreDbContext<TenantInfo>
+	public class MultiTenantStoreDbContext : EFCoreStoreDbContext<Client>
 	{
-        public MultiTenantDbContext(DbContextOptions options) : base(options)
+        public MultiTenantStoreDbContext(DbContextOptions options) : base(options)
         {
         }
 

@@ -7,6 +7,7 @@ namespace CityHall.Web.Models
 		public string Description { get; set; }
 		public string ImageUrl { get; set; }
 		public string COverUrl { get; set; }
+		public bool IsFeatured { get; set; }
 	}
 }
 

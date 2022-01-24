@@ -1,4 +1,6 @@
 ﻿using System;
+using CityHall.Web.Models.Users;
+
 namespace CityHall.Web.Models
 {
 	public class BaseEntity
