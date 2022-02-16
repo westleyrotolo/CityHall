@@ -37,7 +37,6 @@ namespace CityHall.Web.Repositories.Interfaces
         Task TruncateAsync();
         Task<int> CountAsync(Expression<Func<T, bool>> predicate);
         Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
-        Task<int> LogicDeleteAsync(T t, Func<T, bool> equalsExpression);
         Task<int> UpdateValueAsync(T entity, Func<T, bool> equalsExpression, params Expression<Func<T, object>>[] properties);
         Task<T> AddOrUpdateAsync(T entity, params object[] keys);
         Task Detach(T t, Func<T, bool> equalsExpression);

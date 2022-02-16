@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CityHall.Web.Data;
 using CityHall.Web.Models;
 using CityHall.Web.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -68,9 +69,9 @@ namespace CityHall.Web.Repositories
         }
         public virtual T Add(T t)
         {
-            if (t.GetType() as typeof(BaseEntity) b)
+            if (typeof(T).IsSubclassOf(typeof(BaseEntity)))
             {
-                ((BaseEntity)t).CreatedAt = DateTime.Now;
+                (t as BaseEntity).CreatedAt = DateTime.Now;
                 (t as BaseEntity).UpdatedAt = DateTime.Now;
             }
             _context.Set<T>().Add(t);
@@ -186,7 +187,6 @@ namespace CityHall.Web.Repositories
             {
 
                 if (typeof(T).IsSubclassOf(typeof(BaseEntity))
-                    || typeof(T).IsSubclassOf(typeof(BaseIdentityEntity))
                     || typeof(BaseEntity).IsAssignableFrom(typeof(T)))
                 {
                     (t as BaseEntity).UpdatedAt = DateTime.Now;
@@ -369,18 +369,6 @@ namespace CityHall.Web.Repositories
             return query;
         }
 
-        public Task<int> LogicDeleteAsync(T t, Func<T, bool> equalsExpression)
-        {
-            _context.DetachLocal(t, equalsExpression);
-            _context.Set<T>().Attach(t);
-            if (typeof(T).IsSubclassOf(typeof(BaseIdentityEntity))
-                || typeof(BaseIdentityEntity).IsAssignableFrom(typeof(T)))
-            {
-                (t as BaseIdentityEntity).IsDeleted = true;
-                _context.Entry(t).Property(x => (x as BaseIdentityEntity).IsDeleted).IsModified = true;
-            }
-            return _context.SaveChangesAsync();
-        }
 
         public Task Detach(T t, Func<T, bool> equalsExpression)
         {

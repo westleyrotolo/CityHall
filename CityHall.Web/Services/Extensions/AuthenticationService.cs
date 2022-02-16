@@ -15,10 +15,14 @@ namespace CityHall.Web.Services.Extensions
         public static void AddAuth(this IServiceCollection services, IConfiguration configuration)
         {
             // JWT
-            var audience = configuration["Jwt-Audience"];
-            var issuer = configuration["Jwt-Issuer"];
-            var key = configuration["Jwt-SecretKey"];
+            var audience = configuration["JwtToken:Audience"];
+            var issuer = configuration["JwtToken:Issuer"];
+            var key = configuration["JwtToken:SecretKey"];
             var keyBytes = Encoding.UTF8.GetBytes(key);
+
+            services.AddIdentity<User, UserRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             services
                 .AddAuthentication(options =>

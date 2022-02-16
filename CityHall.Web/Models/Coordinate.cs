@@ -1,7 +1,7 @@
 ﻿using System;
 namespace CityHall.Web.Models
 {
-	public class Coordinate
+	public class Coordinate : BaseIdentityEntity<int>
 	{
 		public string DisplayName { get; set; }
 		public double Latitude { get; set; }

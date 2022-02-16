@@ -9,9 +9,10 @@ namespace CityHall.Web.Services.Extensions
 	{
         public static void AddPostgreSqlConnection(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            /*
+            services.AddDbContext<MultiTenantStoreDbContext>(options =>
             {
-                var connectionString = configuration.GetConnectionString("CityHallDbPgSqlConnection");
+                var connectionString = configuration.GetConnectionString("DefaultConnection");
                 options.UseNpgsql(connectionString, npgsqlOptionsAction: sqlOptions =>
                 {
                     sqlOptions.EnableRetryOnFailure(
@@ -21,6 +22,7 @@ namespace CityHall.Web.Services.Extensions
                 })
                 .UseSnakeCaseNamingConvention(CultureInfo.InvariantCulture);
             });
+            */
         }
     }
 }

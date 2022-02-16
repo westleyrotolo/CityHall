@@ -33,6 +33,12 @@
     <PackageReference Include="Finbuckle.MultiTenant" Version="6.5.1" />
     <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.5.1" />
     <PackageReference Include="AWSSDK.S3" Version="3.7.7.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +66,18 @@
     <None Remove="Models\MultiTenant\" />
     <None Remove="Models\Home\" />
     <None Remove="Dtos\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="Controllers\V1\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
+    <None Remove="Models\Pages\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="AutoMapper" />
+    <None Remove="Helpers\" />
+    <None Remove="Swashbuckle.AspNetCore.Swagger" />
+    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
+    <None Remove="Swashbuckle.AspNetCore.SwaggerGen" />
+    <None Remove="Constantss\" />
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,6 +91,11 @@
     <Folder Include="Models\MultiTenant\" />
     <Folder Include="Models\RichPage\" />
     <Folder Include="Dtos\" />
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Controllers\V1\" />
+    <Folder Include="Models\Pages\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
